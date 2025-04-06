@@ -4,6 +4,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
+import android.content.Intent;
+
+
 
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     Spinner inputUnitSpinner, outputUnitSpinner;
     TextView resultText;
     Button convertButton;
+    ImageButton settingsButton;
 
     String[] inputUnits = {"Select source unit", "Feet", "Inches", "Centimeters", "Meters", "Yards"};
     String[] outputUnits = {"Select target unit", "Feet", "Inches", "Centimeters", "Meters", "Yards"};
@@ -28,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         outputUnitSpinner = findViewById(R.id.outputUnitSpinner);
         resultText = findViewById(R.id.resultText);
         convertButton = findViewById(R.id.convertButton);
+        settingsButton=findViewById(R.id.settingsButton);
 
 
         ArrayAdapter<String> inputAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, inputUnits) {
@@ -67,6 +72,11 @@ public class MainActivity extends AppCompatActivity {
 
         // Convert button logic
         convertButton.setOnClickListener(v -> convert());
+
+        settingsButton.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+            startActivity(intent);
+        });
     }
 
     void convert() {
