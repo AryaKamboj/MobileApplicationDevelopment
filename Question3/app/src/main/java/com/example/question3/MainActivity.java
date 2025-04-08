@@ -92,24 +92,28 @@ public class MainActivity extends AppCompatActivity {
     }
 
     double toMeters(double value, String unit) {
+        double result;
         switch (unit) {
-            case "Feet": return value * 0.3048;
-            case "Inches": return value * 0.0254;
-            case "Centimeters": return value / 100.0;
-            case "Meters": return value;
-            case "Yards": return value * 0.9144;
+            case "Feet": result = value * 0.3048; break;
+            case "Inches": result = value * 0.0254; break;
+            case "Centimeters": result = value / 100.0; break;
+            case "Meters": result = value; break;
+            case "Yards": result = value * 0.9144; break;
             default: return 0;
         }
+        return Math.round(result * 100.0) / 100.0;
     }
 
     double fromMeters(double meters, String unit) {
+        double result;
         switch (unit) {
-            case "Feet": return meters / 0.3048;
-            case "Inches": return meters / 0.0254;
-            case "Centimeters": return meters * 100;
-            case "Meters": return meters;
-            case "Yards": return meters / 0.9144;
+            case "Feet": result = meters / 0.3048; break;
+            case "Inches": result = meters / 0.0254; break;
+            case "Centimeters": result = meters * 100; break;
+            case "Meters": result = meters; break;
+            case "Yards": result = meters / 0.9144; break;
             default: return 0;
         }
+        return Math.round(result * 100.0) / 100.0;
     }
 }
