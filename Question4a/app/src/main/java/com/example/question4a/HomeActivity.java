@@ -23,7 +23,7 @@ public class HomeActivity extends AppCompatActivity {
 
         // Get user name from intent
         String username = getIntent().getStringExtra("username");
-        tvWelcome.setText("Welcome, " + username + "!");
+        tvWelcome.setText("Welcome,you are signed in as " + username + "!");
 
         // Set up sign-out config
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
